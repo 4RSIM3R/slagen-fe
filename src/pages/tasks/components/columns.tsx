@@ -1,11 +1,10 @@
 import { ColumnDef } from '@tanstack/react-table'
 
-import { Badge } from '@/components/ui/badge'
 import { Checkbox } from '@/components/ui/checkbox'
 import { DataTableColumnHeader } from './data-table-column-header'
 import { DataTableRowActions } from './data-table-row-actions'
 
-import { labels, priorities, statuses } from '../data/data'
+import { priorities, statuses } from '../data/data'
 import { Task } from '../data/schema'
 
 export const columns: ColumnDef<Task>[] = [
@@ -41,24 +40,6 @@ export const columns: ColumnDef<Task>[] = [
     cell: ({ row }) => <div className='w-[80px]'>{row.getValue('id')}</div>,
     enableSorting: false,
     enableHiding: false,
-  },
-  {
-    accessorKey: 'title',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Title' />
-    ),
-    cell: ({ row }) => {
-      const label = labels.find((label) => label.value === row.original.label)
-
-      return (
-        <div className='flex space-x-2'>
-          {label && <Badge variant='outline'>{label.label}</Badge>}
-          <span className='max-w-32 truncate font-medium sm:max-w-72 md:max-w-[31rem]'>
-            {row.getValue('title')}
-          </span>
-        </div>
-      )
-    },
   },
   {
     accessorKey: 'status',
