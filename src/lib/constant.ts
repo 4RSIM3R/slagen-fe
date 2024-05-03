@@ -1,0 +1,1 @@
+export const bg_login = "https://www.wartabromo.com/wp-content/uploads/WhatsApp-Image-2018-10-02-at-8.38.44-AM.jpeg";
